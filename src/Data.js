@@ -161,15 +161,15 @@ export const data = {
     contact: [
         {
             info: '中国',
-            text: 'Media@clover.com',
+            text: 'hi@zhizhiaction.com',
         },
         {
             info: '加拿大',
-            text: 'Media@clover.com',
+            text: 'hi@zhizhiaction.com',
         },
         {
             info: '美国',
-            text: 'Media@clover.com',
+            text: 'hi@zhizhiaction.com',
         }
     ],
     customer: [
