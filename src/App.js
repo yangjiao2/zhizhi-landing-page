@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Carousel, Row, Col, Input } from 'antd';
+import { Carousel, Row, Col } from 'antd';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 import Navigation from './components/Navigation.js';
@@ -8,11 +8,11 @@ import HeaderNavigation from './components/HeaderNavigation.js';
 import OverlayLayout from './components/OverlayLayout.js'
 import ThreeColSection from './components/ThreeColSection.js'
 import Brand from './components/Brand.js'
+import EmailForm from './components/EmailForm.js'
 import IconCard from './components/IconCard.js'
 import { Tabs } from 'antd';
 import { data } from './Data.js';
 
-const { Search } = Input;
 const { TabPane } = Tabs;
 
 const { call_to_action, customer, about_us_card, about_us, product_view, product_update, navigation } = data;
@@ -291,14 +291,7 @@ function Subscription() {
             {data.subscription}
           </div>
           <br />
-          <div className="horizontal-padding">
-            <Search
-              placeholder="邮箱"
-              enterButton="订阅"
-              size="large"
-              onSearch={value => console.log(value)}
-            />
-          </div>
+          <EmailForm />
         </Col >
       </Row >
     </section >
