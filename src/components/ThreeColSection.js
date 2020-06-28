@@ -2,7 +2,8 @@ import React from 'react';
 import { Divider, Row, Col } from 'antd';
 import IconCard from './IconCard.js'
 
-function ThreeColSection({ key, paragraph = '', content, withDivider = false }) {
+function MultiColSection({ key, colCount = 3, paragraph = '', content, withDivider = false }) {
+    const span = parseInt(24 / colCount);
     return (
         <>
             <Row>
@@ -34,4 +35,4 @@ function ThreeColSection({ key, paragraph = '', content, withDivider = false }) 
 }
 
 
-export default ThreeColSection;
+export default MultiColSection;

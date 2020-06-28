@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col } from 'antd';
 import { Link } from 'react-router-dom'
 
-function IconCard({ key, image, header, text, link, info, preHeader, postHeader }) {
+function IconCard({ key, image, header, text, link, info, preHeader, postHeader, linkText = '查看更多' }) {
     return (
         <div className={"icon-card"} key={key}>
             {info && <Row>
@@ -39,7 +39,7 @@ function IconCard({ key, image, header, text, link, info, preHeader, postHeader 
                     </div>
                 </Col>}
             </Row>
-            <br />
+
             {text && <Row >
                 <div className="info-text" >
                     {text}
@@ -50,7 +50,7 @@ function IconCard({ key, image, header, text, link, info, preHeader, postHeader 
                 <div className="info-text" >
                     <Link to={link}>
                         <span className="navigation-link">
-                            查看更多 <i className="fa fa-long-arrow-right"></i>
+                            {linkText}  <i className="fa fa-long-arrow-right"></i>
                         </span>
                     </Link>
                 </div>

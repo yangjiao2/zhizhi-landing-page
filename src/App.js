@@ -6,16 +6,18 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Navigation from './components/Navigation.js';
 import HeaderNavigation from './components/HeaderNavigation.js';
 import OverlayLayout from './components/OverlayLayout.js'
-import ThreeColSection from './components/ThreeColSection.js'
+import MultiColSection from './components/ThreeColSection.js'
+import FixedColSection from './components/FixedColSection.js'
 import Brand from './components/Brand.js'
 import IconCard from './components/IconCard.js'
+import SiderLayout from './components/SiderLayout.js'
 import { Tabs } from 'antd';
 import { data } from './Data.js';
 
 const { Search } = Input;
 const { TabPane } = Tabs;
 
-const { call_to_action, customer, about_us_card, about_us, product_view, product_update, navigation } = data;
+const { call_to_action, customer, connection, about_us_card, about_us, product_view, product_update, navigation } = data;
 const leftSider = 4;
 
 function App() {
@@ -42,24 +44,25 @@ function LandingPage() {
         <Seperator />
         <Product />
         {/* <SectionC title={"Developer Bot for Slack"} subtitle={"One article to one random person in your Slack group. Once a day."} /> */}
+
         <Seperator />
         <Customer />
-        <Seperator />
+        {/* <Seperator /> */}
 
         <Seperator />
         <ProductUpdate />
 
         <Seperator />
         <Subscription />
-        <Seperator />
+        {/* <Seperator /> */}
 
         <Seperator />
         <Connection />
-        <Seperator />
+        {/* <Seperator /> */}
 
         <Seperator />
         <ContactUs />
-        <Seperator />
+        {/* <Seperator /> */}
 
         <Seperator />
         <Team />
@@ -76,11 +79,15 @@ function Seperator() {
   return <div className="seperator" />
 }
 
+function SectionSeperator() {
+  return <div className="section-seperator" />
+}
+
 
 function Header({ message, title }) {
   return (
     <>
-      <div className="horizontal-padding">
+      <div className="nav-padding">
         <HeaderNavigation />
         <h1 className="title">{title}</h1>
       </div>
@@ -100,23 +107,21 @@ function Header({ message, title }) {
 function AboutUs() {
   const content =
     (
-      <ThreeColSection
+      <MultiColSection
         paragraph={about_us}
         content={about_us_card}>
-      </ThreeColSection>
+      </MultiColSection>
     );
   return (
-    <section id={navigation.aboutus.id} className="about-us horizontal-padding">
-      <Row>
-        <Col span={leftSider} >
-          <h2 className="heading">
+    <section id={navigation.aboutus.id} className="about-us horizontal-padding1">
+      <SiderLayout
+        sider={
+          <h3 className="heading">
             关于我们
-          </h2>
-        </Col >
-        <Col span={19} offset={1}>
-          {content}
-        </Col>
-      </Row >
+        </h3>
+        }
+        content={content}
+      ></SiderLayout>
     </section >
   )
 }
@@ -124,70 +129,79 @@ function AboutUs() {
 function Product() {
   const verticalPosition = 68;
   const horizontalPosition = 48;
-
+  const horizontalPosition2 = 36;
+  const imageStyle = { position: 'absolute', width: "80%", height: "100%" };
+  const textStyle = { position: 'absolute', width: "60%" };
   return (
-    <section id={navigation.product.id} className="product-viewer horizontal-padding">
-      <Row>
-        <Col span={leftSider}>
-          <h2 className="heading">
+    <section id={navigation.product.id} className="product-viewer">
+      <SiderLayout
+        sider={
+          <h3 className="heading">
             了解产品
-          </h2>
-        </Col>
-      </Row>
-
-      {
-        product_view.map(
-          (product, index) => {
-            const { name, ename, description, image, text, icon, feature } = product;
-            const Card = () => <IconCard
-              key={index}
-              header={name}
-              preHeader={ename}
-              text={description}
-              link={'/'}
-              image={icon}
-            ></IconCard>;
-            const Image = () => <img className="product-image" src={image} />;
-            const side = <ThreeColSection
-              paragraph={text}
-              content={feature}>
-            </ThreeColSection>
-            if (index % 2 == 0) {
-              return (<Row>
-                <Col span={14}>
-                  <OverlayLayout
-                    backgroundStyle={{ position: 'absolute', top: verticalPosition, left: horizontalPosition, width: "80%", height: "100%" }}
-                    frontStyle={{ position: 'absolute', top: 0, left: 0, width: '60%', }}
-                    BackgroundElement={Image}
-                    FrontElement={Card}
-                  >
-                  </OverlayLayout>
-                </Col>
-                <Col span={10} className="product-feature">
-                  {side}
-                </Col>
-              </Row>);
-            } else {
-              return (
-                <Row>
-                  <Col span={10} className="product-feature">
-                    {side}
-                  </Col>
-                  <Col span={14}>
-                    <OverlayLayout
-                      backgroundStyle={{ position: 'absolute', top: verticalPosition, left: horizontalPosition, width: "80%", height: "100%" }}
-                      frontStyle={{ position: 'absolute', top: 0, right: 0, width: '60%', }}
-                      BackgroundElement={Image}
-                      FrontElement={Card}
-                    >
-                    </OverlayLayout>
-                  </Col>
-                </Row>)
+        </h3>
+        }
+        content={null}
+      ></SiderLayout >
+      <br />
+      <div className="horizontal-padding">
+        {
+          product_view.map(
+            (product, index) => {
+              const { name, ename, description, image, text, icon, feature, linkText } = product;
+              const Card = () => <IconCard
+                key={index}
+                header={name}
+                preHeader={ename}
+                text={description}
+                linkText={linkText}
+                link={'/'}
+                image={icon}
+              ></IconCard>;
+              const Image = () => <img className="product-image" src={image} />;
+              const side = <MultiColSection
+                paragraph={text}
+                content={feature}>
+              </MultiColSection>
+              if (index % 2 == 0) {
+                return (
+                  <Row>
+                    <Col span={14}>
+                      <OverlayLayout
+                        backgroundStyle={{ top: verticalPosition, left: 0, ...imageStyle }}
+                        frontStyle={{ top: 0, left: -horizontalPosition, ...textStyle }}
+                        BackgroundElement={Image}
+                        FrontElement={Card}
+                      >
+                      </OverlayLayout>
+                    </Col>
+                    <Col span={10} className="product-feature">
+                      {side}
+                    </Col>
+                  </Row>);
+              } else {
+                return (
+                  <>
+                    <SectionSeperator />
+                    <Row>
+                      <Col span={10} className="product-feature">
+                        {side}
+                      </Col>
+                      <Col span={14}>
+                        <OverlayLayout
+                          backgroundStyle={{ top: verticalPosition, right: 0, textAlign: 'right', ...imageStyle }}
+                          frontStyle={{ top: 0, right: -horizontalPosition2, ...textStyle, }}
+                          BackgroundElement={Image}
+                          FrontElement={Card}
+                        >
+                        </OverlayLayout>
+                      </Col>
+                    </Row>
+                  </>)
+              }
             }
-          }
-        )
-      }
-
+          )
+        }
+      </div>
 
     </section >
   )
@@ -196,37 +210,48 @@ function Product() {
 function Customer() {
   const content =
     (
-      <ThreeColSection
+      <MultiColSection
         paragraph={''}
         content={product_update} >
-      </ThreeColSection >
+      </MultiColSection >
     );
   const verticalPosition = 20;
   const horizontalPosition = 200;
 
   return (
-    <section id="customer" className="customer">
-      <Row>
-        <Col span={leftSider}>
-          <h2 className="heading">
+    <section id="customer" className="customer horizontal-padding">
+      < Row >
+        <Col span={leftSider} className="section-title">
+          {/* <h2 className="heading">
             用户反馈
-          </h2>
+          </h2> */}
         </Col>
-      </Row>
+      </Row >
       <Row className="vertical-padding">
         <Col span={10}>
-
         </Col>
         <Col span={14} >
           <Tabs id="customer-tab" defaultActiveKey="1" >
             {customer.map((profile, index) => {
-              const { title, name, description, image } = profile;
-              const Card = () => <IconCard
-                key={index}
-                header={name}
-                postHeader={title}
-                text={description}
-              ></IconCard>;
+              const { title, name, description, image, feature } = profile;
+              const Card = () =>
+                <>
+                  <div className="customer-profile">
+                    <IconCard
+                      key={index}
+                      header={name}
+                      postHeader={title}
+                      text={description}
+                    ></IconCard>
+                  </div>
+                  <div className="customer-feature">
+                    <MultiColSection
+                      paragraph={''}
+                      colCount={4}
+                      content={feature} >
+                    </MultiColSection >
+                  </div>
+                </>;
               const Image = () => <img className="customer-image" src={image} />;
               return (
                 <TabPane tab={title} key={index + 1} >
@@ -240,16 +265,6 @@ function Customer() {
                     FrontElement={Card}
                   >
                   </OverlayLayout>
-                  {/* <div style={{
-                    position: 'absolute',
-                    marginLeft: '-77%'
-                  }}>
-                    <Image />
-                  </div>
-                  <div className="filled-bg" style={{ position: 'absolute', left: '-40px' }}>
-                    <Card />
-                  </div> */}
-
                 </TabPane>
               );
             })
@@ -265,42 +280,53 @@ function Customer() {
 function Subscription() {
   const content =
     (
-      <ThreeColSection
+      <MultiColSection
         paragraph={''}
         content={product_update} >
-      </ThreeColSection >
+      </MultiColSection >
     );
   return (
-    <section id={"sub"} className="sub horizontal-padding filled-bg">
-      <Row className="vertical-padding">
-        <Col span={leftSider}>
-          <h2 className="heading filled-bg">
+    <section id={"sub"} className="sub  top-padding filled-bg">
+      <SiderLayout
+        sider={
+          <h3 className="heading filled-bg">
             产品动态
-          </h2>
-        </Col>
-        <Col span={4} offset={2}>
-          <div className="paragraph">
-            订阅并关注最新产品动态
+        </h3>
+        }
+
+        content={<Row>
+          <Col span={6} offset={2}>
+            <div className="paragraph">
+              订阅并关注最新产品动态
           </div>
-          <br />
-          <br />
-          <span>QR CODE</span>
-        </Col>
-        <Col span={10} offset={2}>
-          <div className="paragraph">
-            {data.subscription}
-          </div>
-          <br />
-          <div className="horizontal-padding">
-            <Search
-              placeholder="邮箱"
-              enterButton="订阅"
-              size="large"
-              onSearch={value => console.log(value)}
-            />
-          </div>
-        </Col >
-      </Row >
+            <br />
+            <br />
+            <span>QR CODE</span>
+          </Col>
+          <Col span={14} offset={2}>
+            <div className="paragraph">
+              {data.subscription}
+            </div>
+            <br />
+            <div className="horizontal-padding1">
+              <Search
+                placeholder="邮箱"
+                enterButton="订阅"
+                size="large"
+                width={500}
+                onSearch={value => console.log(value)}
+              />
+            </div>
+          </Col >
+        </Row >}
+        siderStyle={{
+          backgroundColor: '#3964fe',
+        }}
+        contentStyle={{
+          backgroundColor: '#3964fe',
+        }}
+      ></SiderLayout>
+
     </section >
   )
 }
@@ -309,58 +335,64 @@ function Subscription() {
 function ProductUpdate() {
   const content =
     (
-      <ThreeColSection
+      <FixedColSection
         paragraph={''}
-        content={data.product_update}
-        withDivider={true}>
-      </ThreeColSection >
+        content={[...data.product_update]}
+        withDivider={true}
+        width={370}>
+      </FixedColSection >
     );
   return (
-    <section id={navigation.update.id} className="update horizontal-padding">
-      <Row>
-        <Col span={leftSider}>
-          <h2 className="heading">
+    <section id={navigation.update.id} className="update">
+      <SiderLayout
+        sider={
+          <h3 className="heading">
             最新动向
-          </h2>
-        </Col>
-        <Col span={18} offset={1} >
-          {content}
-        </Col>
-      </Row>
+        </h3>
+        }
+        content={content}
+        contentStyle={{ paddingRight: '0px' }}
+      ></SiderLayout >
     </section>
   )
 }
 
 function Connection() {
+  const imageWidth = 128;
+  const colSpan = 24 / connection.length;
   return (
-    <section id="connection" className="connection horizontal-padding">
-      <Row>
+    <section id="connection" className="connection">
+      <SiderLayout
+        sider={
+          <h3 className="heading">
+            合作伙伴
+        </h3>
+        }
+        content={<div>
+          <Row >
+            {
+              connection.map(parter => {
+                return (<Col span={colSpan} >
+                  <img
+                    width={imageWidth} src={parter} />
+                </Col >)
+              }
+              )
+            }
+          </Row>
+        </div>}
+      ></SiderLayout >
+
+      {/* <Row>
         <Col span={leftSider}>
           <h2 className="heading">
             合作伙伴
           </h2>
         </Col>
         <Col span={18} offset={1} >
-          <div>
-            <Row >
-              <Col span={4}>
-                <img
-                  width={40} src={'./images/logo/36Kr.png'} />
-              </Col >
-              <Col span={4}>
-                <img
-                  width={40}
-                  src={'./images/logo/Hourentang.png'} />
-              </Col>
-              <Col span={4}>
-                <img
-                  width={40}
-                  src={'./images/logo/Tongrentang.png'} />
-              </Col>
-            </Row>
-          </div>
+
         </Col>
-      </Row>
+      </Row> */}
     </section >
   )
 }
@@ -394,11 +426,11 @@ function Team() {
 function ContactUs() {
   const content =
     (
-      <ThreeColSection
+      <MultiColSection
         paragraph={''}
         content={data.contact}
         withDivider={true}>
-      </ThreeColSection >
+      </MultiColSection >
     );
   return (
     <section id={navigation.contactus.id} className=" horizontal-padding">
