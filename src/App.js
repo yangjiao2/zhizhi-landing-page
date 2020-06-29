@@ -11,6 +11,7 @@ import FixedColSection from './components/FixedColSection.js'
 import Brand from './components/Brand.js'
 import IconCard from './components/IconCard.js'
 import SiderLayout from './components/SiderLayout.js'
+import EmailSubmission from './components/EmailSubmission.js'
 import { Tabs } from 'antd';
 import { data } from './Data.js';
 
@@ -308,13 +309,7 @@ function Subscription() {
             </div>
             <br />
             <div className="horizontal-padding1">
-              <Search
-                placeholder="邮箱"
-                enterButton="订阅"
-                size="large"
-                width={500}
-                onSearch={value => console.log(value)}
-              />
+              <EmailSubmission />
             </div>
           </Col >
         </Row >}
