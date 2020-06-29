@@ -17,7 +17,7 @@ import { data } from './Data.js';
 const { Search } = Input;
 const { TabPane } = Tabs;
 
-const { call_to_action, customer, connection, about_us_card, about_us, product_view, product_update, navigation } = data;
+const { call_to_action, customer, connection, about_us_card, about_us, product_view, product_update, media_update, navigation } = data;
 const leftSider = 4;
 
 function App() {
@@ -43,26 +43,25 @@ function LandingPage() {
 
         <Seperator />
         <Product />
-        {/* <SectionC title={"Developer Bot for Slack"} subtitle={"One article to one random person in your Slack group. Once a day."} /> */}
 
         <Seperator />
         <Customer />
-        {/* <Seperator /> */}
+
+        <Seperator />
+        <Seperator />
+        <Subscription />
 
         <Seperator />
         <ProductUpdate />
 
         <Seperator />
-        <Subscription />
-        {/* <Seperator /> */}
+        <MediaUpdate />
 
         <Seperator />
         <Connection />
-        {/* <Seperator /> */}
 
         <Seperator />
         <ContactUs />
-        {/* <Seperator /> */}
 
         <Seperator />
         <Team />
@@ -247,7 +246,7 @@ function Customer() {
                   <div className="customer-feature">
                     <MultiColSection
                       paragraph={''}
-                      colCount={4}
+                      colCount={feature.length}
                       content={feature} >
                     </MultiColSection >
                   </div>
@@ -337,7 +336,7 @@ function ProductUpdate() {
     (
       <FixedColSection
         paragraph={''}
-        content={[...data.product_update]}
+        content={[...product_update]}
         withDivider={true}
         width={370}>
       </FixedColSection >
@@ -356,6 +355,34 @@ function ProductUpdate() {
     </section>
   )
 }
+
+
+function MediaUpdate() {
+  const content =
+    (
+      <FixedColSection
+        paragraph={''}
+        content={[...media_update]}
+        withDivider={false}
+        width={370}
+        altBackgound={true}>
+      </FixedColSection >
+    );
+  return (
+    <section id={"media-update"} className="media-update">
+      <SiderLayout
+        sider={
+          <h3 className="heading">
+            博客
+        </h3>
+        }
+        content={content}
+        contentStyle={{ paddingRight: '0px' }}
+      ></SiderLayout >
+    </section>
+  )
+}
+
 
 function Connection() {
   const imageWidth = 128;
@@ -382,17 +409,6 @@ function Connection() {
           </Row>
         </div>}
       ></SiderLayout >
-
-      {/* <Row>
-        <Col span={leftSider}>
-          <h2 className="heading">
-            合作伙伴
-          </h2>
-        </Col>
-        <Col span={18} offset={1} >
-
-        </Col>
-      </Row> */}
     </section >
   )
 }
@@ -408,17 +424,17 @@ function Team() {
       </>
     );
   return (
-    <section id={navigation.team.id} className="team horizontal-padding">
-      <Row>
-        <Col span={leftSider}>
-          <h2 className="heading">
+    <section id={navigation.team.id} className="team">
+      <SiderLayout
+        sider={
+          <h3 className="heading">
             团队介绍
-          </h2>
-        </Col>
-        <Col span={18} offset={1} >
+        </h3>
+        }
+        content={<div>
           {content}
-        </Col>
-      </Row>
+        </div>}
+      ></SiderLayout >
     </section>
   )
 }
@@ -428,22 +444,24 @@ function ContactUs() {
     (
       <MultiColSection
         paragraph={''}
+        colCount={2}
         content={data.contact}
         withDivider={true}>
       </MultiColSection >
     );
   return (
-    <section id={navigation.contactus.id} className=" horizontal-padding">
-      < Row >
-        <Col span={leftSider}>
-          <h2 className="heading">
+    <section id={navigation.contactus.id} className="contact-us">
+
+      <SiderLayout
+        sider={
+          <h3 className="heading">
             联系我们
-          </h2>
-        </Col>
-        <Col span={18} offset={1} >
+        </h3>
+        }
+        content={<div>
           {content}
-        </Col>
-      </Row >
+        </div>}
+      ></SiderLayout >
     </section >
   )
 }

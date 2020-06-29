@@ -3,7 +3,7 @@ import { Divider, Row, Col } from 'antd';
 import IconCard from './IconCard.js'
 
 function MultiColSection({ key, colCount = 3, paragraph = '', content, withDivider = false }) {
-    const span = parseInt(24 / colCount);
+    const span = parseInt((24 - colCount + 1) / colCount);
     return (
         <>
             <Row>
@@ -13,6 +13,16 @@ function MultiColSection({ key, colCount = 3, paragraph = '', content, withDivid
                 {
                     content.map(
                         (card, index) => {
+                            if (index == 0) {
+                                return (
+                                    <>
+                                        <Col span={withDivider ? span - 1 : span} >
+                                            <IconCard
+                                                key={index}
+                                                {...card} ></IconCard>
+                                        </Col>
+                                    </>)
+                            }
                             return (
                                 <>
                                     {withDivider && (
@@ -20,7 +30,7 @@ function MultiColSection({ key, colCount = 3, paragraph = '', content, withDivid
                                             <Divider className="divider" type="vertical" />
                                         </Col>)
                                     }
-                                    <Col span={withDivider ? 7 : 8} >
+                                    <Col span={withDivider ? span - 1 : span} >
                                         <IconCard
                                             key={index}
                                             {...card} ></IconCard>

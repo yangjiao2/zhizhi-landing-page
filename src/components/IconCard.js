@@ -1,10 +1,11 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 import { Link } from 'react-router-dom'
+import classNames from 'classnames';
 
-function IconCard({ key, image, header, text, link, info, preHeader, postHeader, linkText = '查看更多' }) {
+function IconCard({ key, image, header, text, link, info, preHeader, postHeader, linkText = '查看更多', classname = '' }) {
     return (
-        <div className={"icon-card"} key={key}>
+        <div className={classNames("icon-card", classname)} key={key}>
             {info && <Row>
                 <div className="pre-text">
                     <span >{info}</span>

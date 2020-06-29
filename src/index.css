@@ -107,6 +107,12 @@ code {
 .customer-image {
   width: 600px;
   height: 300px;
+  max-width: 90%;
+}
+
+.media-image {
+  width: 356px;
+  height: 280px;
 }
 
 .seperator {
@@ -140,14 +146,6 @@ a {
   line-height: 20px;
   color: #000000;
   /* float: right; */
-}
-
-.slack-channel {
-  position: relative;
-  width: 40%;
-  display: block;
-  margin: auto;
-  bottom: -50px;
 }
 
 .title,
@@ -282,10 +280,11 @@ hr {
 .flex-row {
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   overflow-y: auto;
   overflow-x: auto;
   align-items: center;
-  align-items: center;
+  -webkit-overflow-scrolling: touch;
 }
 
 .flex-item {
@@ -295,20 +294,20 @@ hr {
 }
 
 .inline-block {
-  /* display: inline-block; */
   align-self: center;
-  border-left: 1px solid #f0f0f0;
-  height: 450px;
+  /* border-left: 1px solid #f0f0f0; */
+  /* height: 450px; */
 }
 
 .icon-card {
-  margin: 40px 20px;
+  padding: 40px 20px;
   text-align: left;
   color: black;
 }
 
 .product-feature .icon-card {
   margin: 8px 4px;
+  padding: 0;
   text-align: center;
   font-size: 14px;
   line-height: 26px;
@@ -321,9 +320,15 @@ hr {
 
 .update .icon-card {
   width: 240px;
-  margin: 40px 70px;
+  margin: 10px 70px;
+  padding: 0;
   text-align: center;
   padding-top: 50px;
+}
+
+.update .icon-card .info-text,
+.media-update .icon-card .info-text {
+  line-height: 36px;
 }
 
 .customer .icon-card {
@@ -331,10 +336,6 @@ hr {
   text-align: left;
 }
 
-.customer-feature {
-  margin: 0px 50px 10px 50px;
-  text-align: center;
-}
 .customer .customer-feature .icon-card {
   margin: 10px;
   text-align: center;
@@ -344,8 +345,36 @@ hr {
   align-self: center;
 }
 
+.customer .customer-feature .icon-card img {
+  width: 60px;
+}
+
+.customer .customer-feature .icon-card .info-text {
+  text-align: center;
+  width: 100%;
+}
+
+.media-update .icon-card {
+  padding: 40px 36px;
+  text-align: left;
+  color: black;
+  margin-right: 14px;
+}
+
+.alt-background {
+  background-color: rgba(57, 100, 254, 0.05);
+}
+
+.left-border {
+  border-left: 1px solid #f0f0f0;
+}
+
+.customer-feature {
+  padding: 0px 50px 10px 50px;
+  text-align: center;
+}
+
 .info-header {
-  /* background-color: white; */
   font-weight: bold;
   font-size: 20px;
   line-height: 26px;
@@ -355,9 +384,9 @@ hr {
 }
 
 .info-text {
-  margin: 14px 0;
+  margin: 14px 0 28px 0;
   font-size: 16px;
-  line-height: 26px;
+  /* line-height: 26px; */
 }
 
 .footer-nav {

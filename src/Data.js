@@ -39,17 +39,17 @@ export const data = {
         {
             image: '/images/icon/Mission@2x.png',
             header: '使命',
-            text: '专注于用户个人和特殊群体的健康管理和营养干预',
+            text: '激励健康生活模式，为健康赋能。',
         },
         {
             image: '/images/icon/Value@2x.png',
             header: '价值',
-            text: '格物致知，力行达德， 意诚心正，卓越创新',
+            text: '开放、信任、正直、创新、行动',
         },
         {
             image: '/images/icon/Hopes@2x.png',
             header: '愿景',
-            text: '让每个人的身心健康得到贴心呵护',
+            text: '创建一个将健康视为权利而非奢侈品的世界。',
         }
     ],
     product_view: [
@@ -160,6 +160,26 @@ export const data = {
             text: '直接对接厂商降低采购成本，直接对接厂商降低采购成本，直接对接厂商降低采购成本，直接对接厂商降低采购成本，直接对接厂商降低采购成本，直接对接厂商降低采购成本，直接对接厂商降低采购成本。',
         }
     ],
+    media_update: [
+        {
+            img: '/images/slider/Slider1.png',
+            link: 'https://google.com',
+            header: '抗击疫情，致知力行与您同在',
+            text: '直接对接厂商降低采购成本，直接对接厂商降低采购成本，直接对接厂商降低采购成本，直接对接厂商降低采购成本，直接对接厂商降低采购成本，直接对接厂商降低采购成本，直接对接厂商降低采购成本。',
+        },
+        {
+            img: '/images/slider/Slider1.png',
+            link: 'https://google.com',
+            header: '抗击疫情，致知力行与您同在',
+            text: '直接对接厂商降低采购成本，直接对接厂商降低采购成本，直接对接厂商降低采购成本，直接对接厂商降低采购成本，直接对接厂商降低采购成本，直接对接厂商降低采购成本，直接对接厂商降低采购成本。',
+        },
+        {
+            img: '/images/slider/Slider1.png',
+            link: 'https://google.com',
+            header: '抗击疫情，致知力行与您同在',
+            text: '直接对接厂商降低采购成本，直接对接厂商降低采购成本，直接对接厂商降低采购成本，直接对接厂商降低采购成本，直接对接厂商降低采购成本，直接对接厂商降低采购成本，直接对接厂商降低采购成本。',
+        }
+    ],
     contact: [
         {
             info: '中国',
@@ -169,10 +189,6 @@ export const data = {
             info: '加拿大',
             text: 'hi@zhizhiaction.com',
         },
-        {
-            info: '美国',
-            text: 'hi@zhizhiaction.com',
-        }
     ],
     customer: [
         {
@@ -182,15 +198,15 @@ export const data = {
             image: '/images/customer/Pregnant.png',
             feature: [
                 {
-                    image: '/images/icon/Cost@2x.png',
+                    image: '/images/icon/Pills.png',
                     text: '均衡饮食',
                 },
                 {
-                    image: '/images/icon/Health@2x.png',
+                    image: '/images/icon/Fishoil.png',
                     text: '深海鱼类',
                 },
                 {
-                    image: '/images/icon/Quality@2x.png',
+                    image: '/images/icon/Vitamin.png',
                     text: '综合维生素',
                 },
             ]
@@ -199,13 +215,41 @@ export const data = {
             name: '程序员1',
             title: '程序员',
             description: '程序员程序员',
-            image: '/images/customer/Programmer.jpeg'
+            image: '/images/customer/Programmer.jpeg',
+            feature: [
+                {
+                    image: '/images/icon/Pills.png',
+                    text: '均衡饮食',
+                },
+                {
+                    image: '/images/icon/Fishoil.png',
+                    text: '深海鱼类',
+                },
+                {
+                    image: '/images/icon/Vitamin.png',
+                    text: '综合维生素',
+                },
+            ]
         },
         {
-            name: '女性白领2',
-            title: '女性白领',
-            description: '女性白领女性白领',
-            image: '/images/customer/Female.jpg'
+            name: '久坐上班族2',
+            title: '久坐上班族',
+            description: '久坐上班族',
+            image: '/images/customer/Female.jpg',
+            feature: [
+                {
+                    image: '/images/icon/Pills.png',
+                    text: '均衡饮食',
+                },
+                {
+                    image: '/images/icon/Fishoil.png',
+                    text: '深海鱼类',
+                },
+                {
+                    image: '/images/icon/Vitamin.png',
+                    text: '综合维生素',
+                },
+            ]
         },
     ],
     subscription: '我们还在研发当中，订阅我们的产品动态以第一时间获得最新消息！',
