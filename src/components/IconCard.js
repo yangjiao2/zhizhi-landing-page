@@ -13,7 +13,7 @@ function IconCard({ key, image, header, text, link, info, preHeader, postHeader,
             </Row>}
             <Row >
                 {image && <Col span={header ? 10 : 24}>
-                    <img src={image.toString()} />
+                    <img width="90%" src={image.toString()} />
                 </Col >
                 }
                 {header && <Col span={image ? 14 : 24}>

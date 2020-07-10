@@ -3,7 +3,7 @@ import { Divider, Row, Col } from 'antd';
 import IconCard from './IconCard.js'
 
 function MultiColSection({ key, colCount = 3, paragraph = '', content, withDivider = false }) {
-    const span = parseInt((24 - colCount + 1) / colCount);
+    const span = withDivider ? parseInt((24 - colCount + 1) / colCount) : parseInt(24 / colCount);
     return (
         <>
             <Row>

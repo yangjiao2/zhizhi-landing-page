@@ -21,7 +21,6 @@ function Navigation({ includeBranding = true }) {
         {Object.values(navigation).map(
           nav => {
             var href = "#" + nav.id;
-            console.log(href);
             return (
               <Col span={3} >
                 <a href={href}>

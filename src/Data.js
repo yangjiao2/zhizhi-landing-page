@@ -58,7 +58,7 @@ export const data = {
             ename: 'iClover',
             icon: '/images/logo/Yiwei.png',
             description: '以自然之名, 物营养之语。 AI驱动的个性化营养健康解决方案， 懂得年轻人健康话语的贴心小伙伴',
-            image: '/images/slider/Slider1.png',
+            image: '/images/product/Product1.png',
             linkText: '了解更多',
             text: '四叶物语是致知力行旗下 ICLOVER 健康生活品牌的子系列，基于营养数据图谱和用户健康数据在内的营养健康大数据资源体系和用户行为数据，通过 智能推荐系统 和 采购中台，为用户个人和特殊群体量身打造专属的数字化营养健康方案，提供个性化、智能化、动态化、多元化、高品质、高效率、低采购成本、便捷化的营养健康产品订阅。',
             feature: [
@@ -101,7 +101,7 @@ export const data = {
             ename: 'iTaste',
             icon: '/images/logo/Yiwei.png',
             description: '心悟灵芽，静虑修心。 AI驱动的个性化精神健康解决方案， 懂得年轻人健康话语的贴心小伙伴。',
-            image: '/images/slider/Slider1.png',
+            image: '/images/product/Product2.png',
             text: '四叶一味是 致知力行旗下 ICLOVER 健康生活品牌的子系列，将冥想(meditation)概念与中国禅修、太极等修身养性的本土传统文化相结合, 打造有中国文化特色的泛冥想品牌（涵盖瑜伽，禅修，太极)，开发周边产品，为用户个人量身打造专属的减压养生方案。',
             linkText: '了解更多',
             feature: [
@@ -212,34 +212,34 @@ export const data = {
             ]
         },
         {
-            name: '程序员1',
-            title: '程序员',
-            description: '程序员程序员',
+            name: '翠花',
+            title: '备孕女性',
+            description: '科学备孕对宝宝和妈妈的健康都十分关键。为了降低胎儿不良发育和孕期并发症的风险，充足的营养至关重要。',
             image: '/images/customer/Programmer.jpeg',
             feature: [
                 {
                     image: '/images/icon/Pills.png',
-                    text: '均衡饮食',
-                },
-                {
-                    image: '/images/icon/Fishoil.png',
-                    text: '深海鱼类',
+                    text: '补充叶酸',
                 },
                 {
                     image: '/images/icon/Vitamin.png',
                     text: '综合维生素',
+                },
+                {
+                    image: '/images/icon/Vitamin.png',
+                    text: '戒烟酒',
                 },
             ]
         },
         {
-            name: '久坐上班族2',
+            name: '铁柱',
             title: '久坐上班族',
-            description: '久坐上班族',
+            description: '室内久坐不仅让人腰酸背痛，还会影响骨骼健康。维生素D和钙能够帮助人们维持骨骼强壮，但大部分人的饮食中这两种营养素都没有达到推荐摄入量，需要对饮食进行调整或使用补剂。',
             image: '/images/customer/Female.jpg',
             feature: [
                 {
                     image: '/images/icon/Pills.png',
-                    text: '均衡饮食',
+                    text: '充足钙摄入',
                 },
                 {
                     image: '/images/icon/Fishoil.png',
@@ -247,7 +247,7 @@ export const data = {
                 },
                 {
                     image: '/images/icon/Vitamin.png',
-                    text: '综合维生素',
+                    text: '补充维生素D',
                 },
             ]
         },
@@ -259,4 +259,10 @@ export const data = {
         './images/logo/Tongrentang.png',
     ],
     team: '我们是一群来自中国和硅谷的小伙伴，为了大家的健康，我们准备搞点事情。',
+    db: {
+        user: "zhizhiaction-rw",
+        server: "zhizhiaction.database.windows.net",
+        password: 'bESF7ukAWX',
+        database: 'main',
+    },
 }
