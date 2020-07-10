@@ -18,12 +18,32 @@ code {
     monospace;
 }
 
-.nav-padding {
-  padding: 40px 120px;
+@media screen and (max-width: 736px) {
+  .landing-page {
+    width: 100%;
+  }
+
+  .nav-padding {
+    padding: 0 0;
+  }
+
+  .horizontal-padding {
+    padding: 0 10px;
+  }
 }
 
-.horizontal-padding {
-  padding: 0 120px;
+@media screen and (min-width: 737px) {
+  .landing-page {
+    width: 1200px;
+  }
+
+  .nav-padding {
+    padding: 40px 120px;
+  }
+
+  .horizontal-padding {
+    padding: 0 120px;
+  }
 }
 
 .sider-layout {
@@ -91,7 +111,7 @@ code {
 
 .carousel-image {
   /* height: 500px; */
-  width: 100%;
+  width: 100vw;
   max-height: 720px;
 }
 
@@ -181,6 +201,11 @@ a {
 
 .sub {
   height: 425px;
+  width: 100vw;
+}
+
+.footer {
+  width: 100vw;
 }
 
 .button {
@@ -214,6 +239,10 @@ a {
 
 .about-us .icon-card .info-header {
   padding-top: 12px;
+}
+
+.about-us .icon-card .info-text {
+  text-align: center;
 }
 
 .customer-profile .icon-card {
@@ -300,7 +329,7 @@ hr {
 }
 
 .icon-card {
-  padding: 40px 20px;
+  padding: 60px 60px;
   text-align: left;
   color: black;
 }
@@ -318,6 +347,14 @@ hr {
   width: 50px;
 }
 
+.product-feature .icon-card .info-text {
+  font-size: 14px;
+  line-height: 26px;
+  text-align: center;
+  color: #6b6b6b;
+  margin: 0 0;
+}
+
 .update .icon-card {
   width: 240px;
   margin: 10px 70px;
@@ -332,12 +369,14 @@ hr {
 }
 
 .customer .icon-card {
-  margin: 60px 50px 0 50px;
+  margin: 60px 20px 0 20px;
+  padding: 0 40px;
   text-align: left;
 }
 
 .customer .customer-feature .icon-card {
   margin: 10px;
+  padding: 10px;
   text-align: center;
   font-size: 14px;
   line-height: 26px;
@@ -412,17 +451,15 @@ hr {
   align-self: flex-end;
 }
 
+.team-padding-top {
+  padding-top: 30px;
+}
+
 .section-c {
   padding-top: 20px;
   padding-bottom: 60px;
   background: #fafafc;
   background-size: cover;
-}
-
-.footer {
-  padding-top: 15px;
-  padding-bottom: 35px;
-  background: #666666;
 }
 
 .laptop,

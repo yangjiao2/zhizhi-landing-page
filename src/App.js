@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Navigation from './components/Navigation.js';
 import HeaderNavigation from './components/HeaderNavigation.js';
 import OverlayLayout from './components/OverlayLayout.js'
-import MultiColSection from './components/ThreeColSection.js'
+import MultiColSection from './components/MultiiColSection.js'
 import FixedColSection from './components/FixedColSection.js'
 import Brand from './components/Brand.js'
 import IconCard from './components/IconCard.js'
@@ -15,7 +15,6 @@ import EmailSubmission from './components/EmailSubmission.js'
 import { Tabs } from 'antd';
 import { data } from './Data.js';
 
-const { Search } = Input;
 const { TabPane } = Tabs;
 
 const { call_to_action, customer, connection, about_us_card, about_us, product_view, product_update, media_update, navigation } = data;
@@ -91,7 +90,7 @@ function Header({ message, title }) {
         <HeaderNavigation />
         <h1 className="title">{title}</h1>
       </div>
-      <Carousel autoplay>
+      <Carousel style={{ width: '100vw' }} autoplay>
         <div >
           <img className='carousel-image' src="/images/slider/Slider1.png" />
         </div>
@@ -105,13 +104,12 @@ function Header({ message, title }) {
 }
 
 function AboutUs() {
-  const content =
-    (
-      <MultiColSection
-        paragraph={about_us}
-        content={about_us_card}>
-      </MultiColSection>
-    );
+  const content = (
+    <MultiColSection
+      paragraph={about_us}
+      content={about_us_card}>
+    </MultiColSection>
+  );
   return (
     <section id={navigation.aboutus.id} className="about-us horizontal-padding1">
       <SiderLayout
@@ -412,10 +410,10 @@ function Team() {
   const content =
     (
       <>
-        <div className="info-header">
-          <h6 >{data.team}</h6>
-        </div>
         <div ><img className="fullwidth-image" src={'./images/Team.png'} /></div>
+        <div className="paragraph team-padding-top">
+          {data.team}
+        </div>
       </>
     );
   return (
@@ -465,7 +463,7 @@ function ContactUs() {
 function Footer() {
   const colSpan = 2;
   return (
-    <section id="footer" className="left-padding">
+    <section id="footer" className="left-padding footer">
       <Row>
         <Col span={leftSider}>
           <Brand includeFootnote={true} />
